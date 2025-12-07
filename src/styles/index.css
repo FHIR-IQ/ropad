@@ -5,12 +5,12 @@
   --bg-primary: #0a0b1e;
   --bg-secondary: #12142d;
   --bg-glass: rgba(255, 255, 255, 0.05);
-  
+
   --primary: #6366f1; /* Indigo 500 */
   --primary-glow: #818cf8;
   --accent: #d946ef; /* Fuchsia 500 */
   --accent-glow: #e879f9;
-  
+
   --text-primary: #ffffff;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
@@ -23,8 +23,10 @@
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 8px;
-  
+
   --header-height: 80px;
+  --sidebar-width: 280px;
+  --sidebar-collapsed: 80px;
 }
 
 * {
@@ -152,4 +154,177 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
   padding: 24px 0;
+}
+
+/* Web-optimized utilities */
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Scrollbar styling for web */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-in {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.slide-in-from-top-10 {
+  animation-name: slideInFromTop;
+}
+
+.slide-in-from-right {
+  animation-name: slideInFromRight;
+}
+
+.zoom-in-95 {
+  animation-name: zoomIn;
+}
+
+.duration-200 {
+  animation-duration: 0.2s;
+}
+
+.duration-300 {
+  animation-duration: 0.3s;
+}
+
+.duration-500 {
+  animation-duration: 0.5s;
+}
+
+/* Large screen optimizations */
+@media (min-width: 1536px) {
+  .glass-panel {
+    border-radius: var(--radius-lg);
+  }
+
+  .heading-md {
+    font-size: 2rem;
+  }
+}
+
+/* Focus states for keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Hover effects for desktop */
+@media (hover: hover) {
+  .glass-panel {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .glass-panel:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: -6px;
+  box-shadow: 0 2px 8px rgba(217, 70, 239, 0.4);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 8px rgba(217, 70, 239, 0.4);
+}
+
+/* Select dropdown styling */
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25em 1.25em;
+  padding-right: 2.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
