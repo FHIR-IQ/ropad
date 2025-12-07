@@ -67,7 +67,7 @@ export default function MedicationTracker() {
     const completionRate = Math.round((completedToday / totalToday) * 100);
 
     return (
-        <div className="space-y-8 animate-in fade-in duration-500">
+        <div className="space-y-6 animate-in fade-in duration-500">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                     <h1 className="heading-md text-gradient">Medication Tracker</h1>
@@ -89,7 +89,7 @@ export default function MedicationTracker() {
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
                 <div className="glass-panel p-6">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="text-sm font-medium text-text-secondary">Today's Progress</h3>
@@ -137,9 +137,9 @@ export default function MedicationTracker() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
                 {/* Medication List */}
-                <div className="xl:col-span-2 space-y-4">
+                <div className="lg:col-span-2 space-y-4">
                     <div className="flex items-center justify-between">
                         <h2 className="text-xl font-semibold">Today's Schedule</h2>
                         <span className="text-sm text-text-muted">{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}</span>

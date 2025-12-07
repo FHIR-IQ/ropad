@@ -38,7 +38,7 @@ export default function DeviceMonitor() {
     const totalScreenTime = usageData.reduce((acc, app) => acc + app.hours, 0);
 
     return (
-        <div className="space-y-8 animate-in fade-in duration-500">
+        <div className="space-y-6 animate-in fade-in duration-500">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                     <h1 className="heading-md text-gradient">Device Monitor</h1>
@@ -57,7 +57,7 @@ export default function DeviceMonitor() {
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
                 <div className="glass-panel p-5">
                     <div className="flex items-center justify-between mb-3">
                         <span className="text-sm text-text-secondary">Total Today</span>
@@ -92,9 +92,9 @@ export default function DeviceMonitor() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
                 {/* Usage Chart */}
-                <div className="xl:col-span-2 space-y-6">
+                <div className="lg:col-span-2 space-y-5">
                     <div className="glass-panel p-6">
                         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                             <h3 className="text-lg font-semibold flex items-center gap-2">
@@ -148,7 +148,7 @@ export default function DeviceMonitor() {
                 </div>
 
                 {/* Sidebar */}
-                <div className="space-y-6">
+                <div className="space-y-5">
                     {/* Connected Devices */}
                     <div className="glass-panel p-6">
                         <h3 className="text-lg font-semibold mb-4">Connected Devices</h3>

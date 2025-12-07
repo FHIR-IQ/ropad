@@ -235,7 +235,25 @@ button {
   animation-duration: 0.5s;
 }
 
-/* Large screen optimizations */
+/* Laptop screen optimizations (1024px - 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .heading-md {
+    font-size: 1.5rem;
+  }
+
+  .glass-panel {
+    padding: 1rem;
+  }
+}
+
+/* Standard laptop screens (1366px - 1536px) */
+@media (min-width: 1366px) {
+  .heading-md {
+    font-size: 1.75rem;
+  }
+}
+
+/* Large screen optimizations (1536px+) */
 @media (min-width: 1536px) {
   .glass-panel {
     border-radius: var(--radius-lg);

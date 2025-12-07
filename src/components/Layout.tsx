@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Pill, Monitor, Activity, Bot, Menu, X, Bell, Settings, HelpCircle } from 'lucide-react';
+import { LayoutDashboard, Pill, Monitor, Activity, Bot, Menu, X, Bell } from 'lucide-react';
 import { OnboardingModal } from './OnboardingModal';
 
 export const Layout = () => {
@@ -8,11 +8,11 @@ export const Layout = () => {
     const location = useLocation();
 
     const navItems = [
-        { icon: LayoutDashboard, label: 'Dashboard', path: '/', description: 'Overview & insights' },
-        { icon: Pill, label: 'Medication', path: '/medication', description: 'Dosage tracking' },
-        { icon: Monitor, label: 'Devices', path: '/devices', description: 'Screen time limits' },
-        { icon: Activity, label: 'Activities', path: '/activities', description: 'Sports & events' },
-        { icon: Bot, label: 'AI Guardian', path: '/guardian', description: 'Smart assistant' },
+        { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
+        { icon: Pill, label: 'Medication', path: '/medication' },
+        { icon: Monitor, label: 'Devices', path: '/devices' },
+        { icon: Activity, label: 'Activities', path: '/activities' },
+        { icon: Bot, label: 'AI Guardian', path: '/guardian' },
     ];
 
     const currentPage = navItems.find(item => item.path === location.pathname);
@@ -22,52 +22,38 @@ export const Layout = () => {
             <OnboardingModal />
 
             {/* Sidebar - Desktop */}
-            <aside className="w-72 glass-panel fixed h-[calc(100vh-32px)] m-4 hidden lg:flex flex-col border-r border-white/10 z-50">
-                <div className="p-6 border-b border-white/5">
-                    <h2 className="text-2xl font-bold text-gradient">ADHD Guardian</h2>
+            <aside className="w-64 fixed h-screen left-0 top-0 hidden lg:flex flex-col z-50 bg-bg-secondary/80 backdrop-blur-xl border-r border-white/10">
+                <div className="p-5 border-b border-white/5">
+                    <h2 className="text-xl font-bold text-gradient">ADHD Guardian</h2>
                     <p className="text-xs text-text-muted mt-1">Parental Dashboard</p>
                 </div>
 
-                <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
                     {navItems.map((item) => (
                         <NavLink
                             key={item.path}
                             to={item.path}
                             className={({ isActive }) => `
-                                flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group
+                                flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200
                                 ${isActive
-                                    ? 'bg-primary/20 text-white shadow-lg border border-white/10'
+                                    ? 'bg-primary/20 text-white border border-primary/30'
                                     : 'text-text-secondary hover:text-white hover:bg-white/5'
                                 }
                             `}
                         >
-                            <item.icon size={20} className="flex-shrink-0" />
-                            <div className="flex flex-col">
-                                <span className="font-medium">{item.label}</span>
-                                <span className="text-xs text-text-muted group-hover:text-text-secondary transition-colors">{item.description}</span>
-                            </div>
+                            <item.icon size={18} className="flex-shrink-0" />
+                            <span className="font-medium text-sm">{item.label}</span>
                         </NavLink>
                     ))}
                 </nav>
 
-                <div className="p-4 border-t border-white/5 space-y-3">
-                    <div className="glass-card p-4 rounded-xl">
-                        <p className="text-sm text-text-muted mb-2">Connected Device</p>
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                <span className="text-sm text-white font-medium">Leo's iPad</span>
-                            </div>
-                            <span className="text-xs text-green-400 bg-green-500/10 px-2 py-1 rounded-full">Online</span>
+                <div className="p-3 border-t border-white/5">
+                    <div className="p-3 rounded-lg bg-white/5">
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                            <span className="text-xs text-white font-medium">Leo's iPad</span>
+                            <span className="text-xs text-green-400 ml-auto">Online</span>
                         </div>
-                    </div>
-                    <div className="flex items-center justify-center gap-4 pt-2">
-                        <button className="p-2 text-text-muted hover:text-white hover:bg-white/5 rounded-lg transition-colors" title="Settings">
-                            <Settings size={18} />
-                        </button>
-                        <button className="p-2 text-text-muted hover:text-white hover:bg-white/5 rounded-lg transition-colors" title="Help">
-                            <HelpCircle size={18} />
-                        </button>
                     </div>
                 </div>
             </aside>
@@ -92,30 +78,26 @@ export const Layout = () => {
             {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
                 <div className="fixed inset-0 z-40 bg-bg-primary/98 backdrop-blur-xl lg:hidden pt-24 px-6 animate-in slide-in-from-top-10 duration-200">
-                    <nav className="space-y-3">
+                    <nav className="space-y-2">
                         {navItems.map((item) => (
                             <NavLink
                                 key={item.path}
                                 to={item.path}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className={({ isActive }) => `
-                                    flex items-center gap-4 px-6 py-4 rounded-2xl transition-all duration-200 text-lg
+                                    flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-200
                                     ${isActive
                                         ? 'bg-primary/20 text-white border border-white/10'
                                         : 'text-text-secondary hover:text-white hover:bg-white/5'
                                     }
                                 `}
                             >
-                                <item.icon size={24} />
-                                <div className="flex flex-col">
-                                    <span className="font-medium">{item.label}</span>
-                                    <span className="text-sm text-text-muted">{item.description}</span>
-                                </div>
+                                <item.icon size={22} />
+                                <span className="font-medium">{item.label}</span>
                             </NavLink>
                         ))}
                     </nav>
-                    <div className="mt-8 glass-card p-4 rounded-xl">
-                        <p className="text-sm text-text-muted mb-2">Connected Device</p>
+                    <div className="mt-6 p-4 rounded-xl bg-white/5">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                             <span className="text-sm text-white">Leo's iPad</span>
@@ -126,8 +108,8 @@ export const Layout = () => {
             )}
 
             {/* Main Content */}
-            <main className="flex-1 lg:ml-80 p-4 lg:p-8 pt-24 lg:pt-8 min-h-screen">
-                <div className="max-w-7xl mx-auto">
+            <main className="flex-1 lg:ml-64 p-4 lg:p-6 xl:p-8 pt-24 lg:pt-6 min-h-screen">
+                <div className="w-full max-w-[1600px] mx-auto">
                     {/* Desktop Header Bar */}
                     <div className="hidden lg:flex items-center justify-between mb-8 pb-6 border-b border-white/5">
                         <div>

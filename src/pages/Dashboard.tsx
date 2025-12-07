@@ -26,7 +26,7 @@ const recentActivities = [
 
 export default function Dashboard() {
     return (
-        <div className="space-y-8 animate-in fade-in duration-500">
+        <div className="space-y-6 animate-in fade-in duration-500">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                     <h1 className="heading-md text-gradient">Dashboard Overview</h1>
@@ -42,7 +42,7 @@ export default function Dashboard() {
             </div>
 
             {/* Summary Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
                 {/* Focus Streak Card */}
                 <div className="glass-panel p-6 bg-gradient-to-br from-indigo-500/10 to-blue-500/10 border-l-4 border-indigo-500 hover:border-indigo-400 transition-colors">
                     <div className="flex items-start justify-between">
@@ -118,9 +118,9 @@ export default function Dashboard() {
             </div>
 
             {/* Charts Row */}
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-                {/* Screen Time Chart - Takes 2 columns on xl */}
-                <div className="xl:col-span-2 glass-panel p-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
+                {/* Screen Time Chart - Takes 2 columns on lg */}
+                <div className="lg:col-span-2 glass-panel p-5">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                         <h3 className="text-lg font-semibold">Weekly Screen Time Activity</h3>
                         <div className="flex items-center gap-2">
@@ -153,7 +153,7 @@ export default function Dashboard() {
                 </div>
 
                 {/* App Breakdown - Takes 1 column */}
-                <div className="glass-panel p-6">
+                <div className="glass-panel p-5">
                     <h3 className="text-lg font-semibold mb-6">App Categories</h3>
                     <div className="h-[200px] w-full">
                         <ResponsiveContainer width="100%" height="100%">
@@ -193,12 +193,12 @@ export default function Dashboard() {
             </div>
 
             {/* Activity Feed */}
-            <div className="glass-panel p-6">
+            <div className="glass-panel p-5">
                 <div className="flex justify-between items-center mb-6">
                     <h3 className="text-lg font-semibold">Today's Activity</h3>
                     <button className="text-sm text-primary hover:underline">View All</button>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {recentActivities.map((activity) => (
                         <div key={activity.id} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/8 transition-colors">
                             <div className="text-2xl">{activity.icon}</div>

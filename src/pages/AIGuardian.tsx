@@ -63,7 +63,7 @@ export default function AIGuardian() {
     ];
 
     return (
-        <div className="space-y-8 animate-in fade-in duration-500">
+        <div className="space-y-6 animate-in fade-in duration-500">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                     <h1 className="heading-md text-gradient">AI Guardian</h1>
@@ -81,9 +81,9 @@ export default function AIGuardian() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
                 {/* Live Chat */}
-                <div className="xl:col-span-2 glass-panel flex flex-col h-[650px]">
+                <div className="lg:col-span-2 glass-panel flex flex-col h-[550px] lg:h-[600px]">
                     <div className="p-4 border-b border-white/10 flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <div className="p-2 bg-gradient-to-br from-primary to-accent rounded-lg">
@@ -175,7 +175,7 @@ export default function AIGuardian() {
                 </div>
 
                 {/* Intervention Feed */}
-                <div className="glass-panel p-6 h-[650px] overflow-hidden flex flex-col">
+                <div className="glass-panel p-5 h-[550px] lg:h-[600px] overflow-hidden flex flex-col">
                     <h3 className="text-lg font-semibold mb-6 flex items-center justify-between">
                         <span className="flex items-center gap-2">
                             <AlertTriangle size={20} />

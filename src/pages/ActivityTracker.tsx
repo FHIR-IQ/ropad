@@ -68,7 +68,7 @@ const weeklyStats = {
 
 export default function ActivityTracker() {
     return (
-        <div className="space-y-8 animate-in fade-in duration-500">
+        <div className="space-y-6 animate-in fade-in duration-500">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                     <h1 className="heading-md text-gradient">Activities & Sports</h1>
@@ -87,7 +87,7 @@ export default function ActivityTracker() {
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5">
                 <div className="glass-panel p-5">
                     <div className="flex items-center justify-between mb-3">
                         <span className="text-sm text-text-secondary">This Week</span>
@@ -116,9 +116,9 @@ export default function ActivityTracker() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
                 {/* Upcoming Schedule */}
-                <div className="xl:col-span-2 space-y-6">
+                <div className="lg:col-span-2 space-y-5">
                     <div className="flex items-center justify-between">
                         <h2 className="text-xl font-semibold">Upcoming Schedule</h2>
                         <button className="text-sm text-primary hover:underline">View Calendar</button>
@@ -161,7 +161,7 @@ export default function ActivityTracker() {
                 </div>
 
                 {/* Local Recommendations */}
-                <div className="space-y-6">
+                <div className="space-y-5">
                     <div className="flex justify-between items-center">
                         <h2 className="text-xl font-semibold">Recommended</h2>
                         <span className="text-xs text-accent border border-accent/30 rounded-full px-2 py-1 bg-accent/5">AI Curated</span>
